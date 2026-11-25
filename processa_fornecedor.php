@@ -1,5 +1,5 @@
 <?php
-require_once "resposta.php";
+require_once "auth.php";
 
 $nome = $_POST['nome_fornecedor'] ?? "";
 $nome = trim($nome);
@@ -31,9 +31,26 @@ responder(false, "Dados invalidos");
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     responder(false, "Email invalido.");
 } else {
-    // Logica adicional: mostra o CNPJ no formato oficial
-    $cnpj_formatado = substr($cnpj, 0, 2) . "." . substr($cnpj, 2, 3) . "." .
-        substr($cnpj, 5, 3) . "/" . substr($cnpj, 8, 4) . "-" . substr($cnpj, 12, 2);
+$comando = $conexao->prepare("SELECT id_fornecedor FROM fornecedores WHERE cnpj = :cnpj");
+$comando->execute(['cnpj' => $cnpj]);
 
-    responder(true, "Fornecedor aprovado para cadastro. CNPJ: " . $cnpj_formatado);
+if ($comando->fetch()) {
+    responder(false, "Ja existe um fornecedor com esse CNPJ.");
+}
+
+$sql = "INSERT INTO fornecedores
+(nome, cnpj, telefone, email, endereco)
+VALUES
+(:nome, :cnpj, :telefone, :email, :endereco)";
+
+$comando = $conexao->prepare($sql);
+
+$comando->bindParam(':nome', $nome);
+$comando->bindParam(':cnpj', $cnpj);
+$comando->bindParam(':telefone', $telefone);
+$comando->bindParam(':email', $email);
+$comando->bindParam(':endereco', $endereco);
+
+$comando->execute();
+responder(true, "Fornecedor aprovado para cadastro. Codigo: " . $conexao->lastInsertId());
 }

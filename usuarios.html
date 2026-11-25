@@ -14,6 +14,8 @@
 
     <form action="processa_usuario.php" method="POST">
 
+        <input type="hidden" name="id_usuario">
+
         <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome" maxlength="100" required>
 
@@ -21,10 +23,10 @@
         <input type="email" name="email" id="email" maxlength="100" required>
 
         <label for="senha">Senha</label>
-        <input type="password" name="senha" id="senha" required>
+        <input type="password" name="senha" id="senha">
 
         <label for="confirmar_senha">Confirmar Senha</label>
-        <input type="password" name="confirmar_senha" id="confirmar_senha" required>
+        <input type="password" name="confirmar_senha" id="confirmar_senha">
 
         <label for="perfil">Perfil</label>
         <select name="perfil" id="perfil" required>
@@ -34,11 +36,31 @@
         </select>
 
         <button type="submit">Salvar Usuario</button>
+        <button type="button" id="limpar">Novo / Limpar</button>
     </form>
+
+    <p>Na alteracao, deixe a senha em branco para manter a atual.</p>
 
     <div id="resultado"></div>
 
+    <h2>Usuarios Cadastrados</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Perfil</th>
+                <th>Acoes</th>
+            </tr>
+        </thead>
+        <tbody id="lista_usuarios"></tbody>
+    </table>
+
     <script src="js/formularios.js"></script>
+    <script src="js/sessao.js"></script>
+    <script src="js/usuarios.js"></script>
 </body>
 
 </html>
