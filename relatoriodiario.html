@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="inicio.html">Voltar ao Inicio</a>
+
+    <form action="processa_relatorio.php" method="GET">
+
+        <label for="data_inicio">Data inicial</label>
+        <input type="date" name="data_inicio" required>
+
+        <label for="data_final">Data final</label>
+        <input type="date" name="data_final" required>
+
+        <label for="codigo_produto">Digite o Codigo Produto</label>
+        <input type="number" name="codigo_produto">
+
+        <label for="codigo_fornecedor">Codigo do Fornecedor</label>
+        <input type="number" name="codigo_fornecedor">
+
+        <label for="tipo_movimentacao">Tipo de Movimentacao</label>
+
+        <select name="tipo_movimentacao">
+            <option value="">Todas</option>
+            <option value="Entrada">Entrada</option>
+            <option value="Saida">Saida</option>
+        </select>
+
+        <button type="submit">Relatorio diario</button>
+
+    </form>
+    <div id="resultado"></div>
+
+    <script src="js/formularios.js"></script>
+</body>
+
+</html>
