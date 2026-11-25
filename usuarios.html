@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios - Gestao de Estoque</title>
+</head>
+
+<body>
+    <a href="inicio.html">Voltar ao Inicio</a>
+
+    <h1>Usuarios</h1>
+
+    <form action="processa_usuario.php" method="POST">
+
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" maxlength="100" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" maxlength="100" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" id="senha" required>
+
+        <label for="confirmar_senha">Confirmar Senha</label>
+        <input type="password" name="confirmar_senha" id="confirmar_senha" required>
+
+        <label for="perfil">Perfil</label>
+        <select name="perfil" id="perfil" required>
+            <option value="">Selecione</option>
+            <option value="Administrador">Administrador</option>
+            <option value="Estoquista">Estoquista</option>
+        </select>
+
+        <button type="submit">Salvar Usuario</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script src="js/formularios.js"></script>
+</body>
+
+</html>
