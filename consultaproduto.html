@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="inicio.html">Voltar ao Inicio</a>
+
+    <form action="processa_consulta.php" method="GET">
+
+        <label for="id_produto"> Codigo do Produto.</label>
+        <input type="number" name="id_produto">
+
+        <label for="descricao"> Descricao do Produto</label>
+        <input type="text" name="descricao">
+
+        <label for="nome">Nome do Produto</label>
+        <input type="text" name="nome">
+
+        <label for="id_fornecedor">Codigo do Fornecedor</label>
+        <input type="number" name="id_fornecedor">
+
+        <label for="preco">Preco do Produto</label>
+        <input type="number" name="preco" step="0.01">
+
+        <label for="quantidade_estoque">Quantidade em Estoque</label>
+        <input type="number" name="quantidade_estoque">
+
+        <button type="submit">Consulta</button>
+
+    </form>
+
+    <div id="resultado"></div>
+
+    <script src="js/formularios.js"></script>
+</body>
+
+</html>

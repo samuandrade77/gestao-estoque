@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="inicio.html">Voltar ao Inicio</a>
+
+    <form action="processa_separacao.php" method="POST">
+
+        <label for="codigo_pedido">Codigo do Pedido</label>
+        <input type="number" name="codigo_pedido" min="1" required>
+
+        <label for="codigo_produto">Codigo do Produto</label>
+        <input type="number" name="codigo_produto" min="1" required>
+
+        <label for="data">Data da Separacao</label>
+        <input type="date" name="data" min="1" required>
+
+        <label for="quantidade_separada">Quantidade Separada</label>
+        <input type="number" name="quantidade_separada" min="1" required>
+
+        <label for="observacao">Observacao</label>
+        <input type="text" name="observacao" maxlength="255" required>
+
+        <button type="submit">Separacao de Mercadorias</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script src="js/formularios.js"></script>
+</body>
+
+</html>
