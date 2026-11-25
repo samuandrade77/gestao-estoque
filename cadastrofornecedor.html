@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="inicio.html">Voltar ao Inicio</a>
+
+    <form action="processa_fornecedor.php" method="POST">
+
+        <label for="nome_fornecedor">Nome do Fornecedor</label>
+        <input type="text" name="nome_fornecedor">
+
+        <label for="cnpj_fornecedor">Cnpj do Fornecedor</label>
+        <input type="number" name="cnpj_fornecedor">
+
+        <label for="endereco">Endereco do Fornecedor</label>
+        <input type="text" name="endereco_fornecedor">
+
+        <label for="email">Email do Fornecedor</label>
+        <input type="text" name="email_fornecedor">
+
+        <label for="telefone">Telefone do Fornecedor</label>
+        <input type="number" name="telefone_fornecedor">
+
+        <button type="submit">Cadastrar Fornecedor</button>
+
+    </form>
+    <div id="resultado"></div>
+
+    <script src="js/formularios.js"></script>
+</body>
+
+</html>
